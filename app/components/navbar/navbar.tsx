@@ -1,6 +1,13 @@
+'use client';
+
 import Container from '../Container';
+import Modal from '../Modal/Modal';
+import Logo from './Logo';
+import Search from './Search';
+import UserMenu from './UserMenu';
 
 const Navbar = () => {
+
   return (
     <div className="fixed w-full bg-white z-10 shadow-sm">
       <div
@@ -8,7 +15,21 @@ const Navbar = () => {
         py-4
         border-b-[1px]">
         <Container>
-          anything
+          <div
+            className="
+              flex
+              flex-row
+              items-center 
+              justify-between
+              gap-3
+              md:gap-0
+            "
+          >
+            <Logo />
+            <Search />
+            <UserMenu />
+            <Modal isOpen title={'Login'} />
+          </div>
         </Container>
       </div>
     </div>
