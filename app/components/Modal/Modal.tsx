@@ -14,7 +14,7 @@ interface ModalProps {
   actionLabel: string;
   disable?: boolean;
   secondaryAction?: () => void;
-  secondaryLabel?: string;
+  secondaryActionLabel?: string;
 }
 
 const Modal: React.FC<ModalProps> = ({
@@ -27,7 +27,7 @@ const Modal: React.FC<ModalProps> = ({
   actionLabel,
   disable,
   secondaryAction,
-  secondaryLabel
+  secondaryActionLabel
 }) => {
   const [showModal, setShowModal] = useState(isOpen);
   useEffect(() => {
@@ -62,6 +62,7 @@ const Modal: React.FC<ModalProps> = ({
   if(!isOpen) {
     return null;
   }
+
 
   return (
     <>
@@ -167,7 +168,19 @@ const Modal: React.FC<ModalProps> = ({
                     w-full
                   "
                 >
-                  <Button icon={IoMdClose} label="My botton"/>
+                  {secondaryAction && secondaryActionLabel && (
+                    <Button
+                      outline
+                      disable={disable}
+                      label={secondaryActionLabel}
+                      onClick={handleSecondaryAction}
+                    />
+                  )}
+                  <Button 
+                    disable={disable}
+                    label={actionLabel}
+                    onClick={handleSubmit}
+                  />
                 </div>
               </div>
             </div>

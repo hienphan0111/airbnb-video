@@ -28,7 +28,6 @@ const Navbar = () => {
             <Logo />
             <Search />
             <UserMenu />
-            <Modal isOpen title={'Login'} />
           </div>
         </Container>
       </div>
